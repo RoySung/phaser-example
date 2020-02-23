@@ -1,5 +1,5 @@
 import * as Phaser from 'phaser'
-import { GameScene } from './scenes'
+import { LoadScene, MenuScene } from './scenes'
 
 const gameConfig: Phaser.Types.Core.GameConfig = {
   title: 'Sample',
@@ -13,7 +13,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     height: 600
   },
 
-  scene: GameScene,
+  scene: [LoadScene, MenuScene],
 
   physics: {
     default: 'arcade',
