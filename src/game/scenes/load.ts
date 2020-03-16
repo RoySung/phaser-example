@@ -35,6 +35,7 @@ export class LoadScene extends Phaser.Scene {
     })
 
     this.load.image('titleBack', 'images/titleBack.jpg')
+    this.load.image('title', 'images/title.png')
 
     this.load.image('pcar1', 'images/pcar1.png')
     this.load.image('pcar2', 'images/pcar2.png')
@@ -57,6 +58,6 @@ export class LoadScene extends Phaser.Scene {
   }
 
   create () {
-    // this.scene.start('MenuScene')
+    this.scene.start('MenuScene')
   }
 }
