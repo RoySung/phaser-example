@@ -1,31 +1,23 @@
-import * as Phaser from 'phaser'
-import AlignGrid from '@/game/utils/alignGrid'
 
-export class MenuScene extends Phaser.Scene {
-  alignGrid: AlignGrid
+import { Scene } from '@/game/utils'
 
+export class MenuScene extends Scene {
   constructor () {
-    super('MenuScene')
+    super('MenuScene', {
+      cols: 10,
+      rows: 10
+    })
   }
 
   create () {
-    const gameWidth = this.game.config.width as number
-    const gameHeight = this.game.config.height as number
-    this.alignGrid = new AlignGrid({
-      scene: this,
-      cols: 10,
-      rows: 10,
-      width: gameWidth,
-      height: gameHeight
-    })
+    super.create()
+
+    const bg = this.add.image(0, 0, 'titleBack')
+    this.alignGrid.placeAt(5, 5, bg)
+
+    const title = this.add.image(0, 0, 'title')
+    this.alignGrid.placeAt(5, 5, title)
+
     this.alignGrid.show()
-
-    const rect = this.add.rectangle(0, 0, 100, 100)
-    rect.setFillStyle(0x0000ff)
-    rect.setOrigin(0.5)
-
-    this.alignGrid.placeAt(5, 5, rect)
-
-    // this.add.image(200, 200, 'title')
   }
 }

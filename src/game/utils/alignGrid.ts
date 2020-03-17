@@ -33,7 +33,7 @@ class AlignGrid {
     const graphics = scene.add.graphics()
     const handleLineStyle = (isCenter) => {
       const lineWidth = isCenter ? 6 : 2
-      graphics.lineStyle(lineWidth, this.color.color32, 0.5)
+      graphics.lineStyle(lineWidth, this.color.color32, 0.3)
     }
 
     for (let x = 0; x < config.width; x += cw) {

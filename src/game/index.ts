@@ -13,8 +13,8 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     height: 600
   },
 
-  // scene: [LoadScene, MenuScene],
-  scene: [MenuScene],
+  scene: [LoadScene, MenuScene],
+  // scene: [MenuScene],
 
   physics: {
     default: 'arcade',
