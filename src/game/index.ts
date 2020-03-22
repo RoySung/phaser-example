@@ -9,8 +9,8 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
   scale: {
     parent: 'game',
     mode: Phaser.Scale.FIT,
-    width: 800,
-    height: 600
+    width: 480,
+    height: 640
   },
 
   scene: [LoadScene, MenuScene],

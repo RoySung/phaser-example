@@ -66,6 +66,16 @@ class AlignGrid {
     obj.x = x
     obj.y = y
   }
+
+  scaleToGameW (obj: { displayWidth: number, scaleX: number, scaleY: number }, per: number) {
+    obj.displayWidth = this.config.width * per
+    obj.scaleY = obj.scaleX
+  }
+
+  scaleToGridW (obj: { displayWidth: number, scaleX: number, scaleY: number }, length: number) {
+    obj.displayWidth = this.cw * length
+    obj.scaleY = obj.scaleX
+  }
 }
 
 export default AlignGrid
