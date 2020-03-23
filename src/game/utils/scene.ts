@@ -1,14 +1,17 @@
 import * as Phaser from 'phaser'
 import AlignGrid from './alignGrid'
+import { Game } from '@/game'
 
+type AlignGridConfig = {
+  cols: number,
+  rows: number
+}
 export class Scene extends Phaser.Scene {
   alignGrid: AlignGrid
-  alignGridConfig: {
-    cols: number,
-    rows: number
-  }
+  alignGridConfig: AlignGridConfig
+  game: Game
 
-  constructor (sceneName, config) {
+  constructor (sceneName: string, config: AlignGridConfig) {
     super(sceneName)
     this.alignGridConfig = config
   }

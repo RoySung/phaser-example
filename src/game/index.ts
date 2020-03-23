@@ -1,7 +1,12 @@
 import * as Phaser from 'phaser'
-import { LoadScene, MenuScene } from './scenes'
+import { LoadScene, MenuScene, MainScene } from './scenes'
 
-const gameConfig: Phaser.Types.Core.GameConfig = {
+type GameConfig = Phaser.Types.Core.GameConfig & {
+  model: object,
+  controller: object
+}
+
+const gameConfig: GameConfig = {
   title: 'Sample',
 
   type: Phaser.AUTO,
@@ -13,7 +18,7 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
     height: 640
   },
 
-  scene: [LoadScene, MenuScene],
+  scene: [LoadScene, MenuScene, MainScene],
   // scene: [MenuScene],
 
   physics: {
@@ -24,7 +29,25 @@ const gameConfig: Phaser.Types.Core.GameConfig = {
   },
 
   parent: 'game',
-  backgroundColor: '#000000'
+  backgroundColor: '#000000',
+  model: {},
+  controller: {}
 }
 
-export const gameFactory = () => new Phaser.Game(gameConfig)
+export class Game extends Phaser.Game {
+  model: any
+  controller: any
+  emitter: Phaser.Events.EventEmitter
+
+  constructor (config: GameConfig) {
+    super(config)
+    this.model = config.model
+    this.controller = config.controller
+    this.emitter = new Phaser.Events.EventEmitter()
+  }
+}
+
+export const gameFactory = () => {
+  const game = new Game(gameConfig)
+  return game
+}
